@@ -1,37 +1,58 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Customer from './components/Customer';
+
+const customers =[{
+  'id':1,
+  'image' : 'https://placeimg.com/64/64/any',
+  'name' : '홍길동',
+  'birthday' : '961222',
+  'gender' : '남자',
+  'job' : '대학생'
+},
+{
+  'id':2,
+  'image' : 'https://placeimg.com/64/64/2',
+  'name' : '홍이동',
+  'birthday' : '971222',
+  'gender' : '여자',
+  'job' : '고등학생'
+},
+{
+  'id':3,
+  'image' : 'https://placeimg.com/64/64/3',
+  'name' : '홍삼동',
+  'birthday' : '901222',
+  'gender' : '남자',
+  'job' : '직장인'
+}
+];
 
 class App extends Component{
   render(){
-    <div className = "gray-background">
-      <img src={logo} lat="logo" />
-      <h2>Let's develop management system!</h2>
-    </div>
+    return (
+      <div>
+        {
+          customers.map(c => {
+            return (
+              <Customer
+                key={c.id}
+                id={c.id}
+                image={c.image}
+                name={c.name}
+                birthday={c.birthday}
+                gender={c.gender}
+                job={c.job}
+              />
+            );
+          })
+        }
+      </div>
+    );
   }
 
 
 }
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello React Project!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
+
 export default App;
